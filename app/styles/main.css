@@ -73,12 +73,23 @@ html, body {
 }
 
 #dotCanvas{
-    width: auto;
+    width: 640px;
+    height: auto;
     margin: auto;
 }
 #dotCanvas>table{
     margin: auto;
     border-collapse: collapse;
+}
+
+#desc{
+    position:relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width:100%;
+    max-width: 640px;
+    margin:auto;
 }
 
 .cell{
