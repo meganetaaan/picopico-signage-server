@@ -12,6 +12,7 @@ $(function(){
         _white: true,
 
         _baseCellOffset : null,
+        _baseCell : null,
         _dotCanvas : null,
 
         _socketLogic : socketLogic,
@@ -20,6 +21,7 @@ $(function(){
             this._socketLogic.init();
             this.view.append('#dotCanvas', 'dotCanvas',{});
             this._color = this._WHITE;
+            this._baseCell = this.$find('#dotCanvas > table > tbody > tr:nth-child(1) > td:nth-child(1)');
             this._baseCellOffset = this.$find('#dotCanvas > table > tbody > tr:nth-child(1) > td:nth-child(1)').offset();
 
             // 処理高速化のためにcellのDOMをキャッシュしておく。
@@ -75,10 +77,17 @@ $(function(){
 
         '.cell touchmove' : function (context, $el) {
             context.event.preventDefault();
+            context.event.stopPropagation();
             var originalEvent = context.event.originalEvent;
+            //this.log.debug(this._baseCell.offset());
+            /*
             var x = originalEvent.pageX;
             var y = originalEvent.pageY; 
+            */
+            var x = originalEvent.changedTouches[0].pageX;
+            var y = originalEvent.changedTouches[0].pageY;
             this.log.debug('x, y: ' +  x + ', ' + y , this.__name);
+            //this._baseCellOffset = this._baseCell.offset();
             var index = {x : Math.round((x - this._baseCellOffset.left) / 10),
                 y : Math.round((y - this._baseCellOffset.top) / 10)};
             this._draw(this._dotCanvas[index.y][index.x]);
@@ -104,6 +113,8 @@ $(function(){
         },
 
         '#send click' : function(context, $el){
+            context.event.preventDefault();
+            context.event.stopPropagation();
             var msg = this.getSignageMessage();
             /*
             var msg = {
@@ -115,6 +126,23 @@ $(function(){
             this._socketLogic.sendSignage(msg);
         },
 
+        '{window} orientationchange' : function(context, $el){
+            if($el[0].orientation === 0 || $el[0].orientation === 180){
+                // 縦向き
+                this.log.debug('showing header');
+                this.$find('#headerArea').show();
+                this.$find('#mainContainer').css('top', '60px');
+            } else {
+                // 横向き
+                this.log.debug('hiding header');
+                this.$find('#headerArea').css('display', 'none');
+                this.$find('#mainContainer').css('top', '0px');
+            }
+        },
+
+        '{window} scroll' : function(context, $el){
+            this._baseCellOffset = this._baseCell.offset();
+        },
         getSignageMessage : function(){
             var pict = "";
             for(var i = 0, l = this._dotCanvas.length; i < l; i++){

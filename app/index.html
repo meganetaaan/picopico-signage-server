@@ -26,39 +26,49 @@
 <div id="headerArea">
     <div id="menuButton"><img src="images/ic_menu.png"></div>
     <div id="title">ピコピコサイネージ</div>
-    <!-- <div id="description">ドットイラストと　メッセージを　くみあわせて　きみだけの　かんばんを　つくろう！</div> -->
 </div>
 <div id="contentsArea">  
-
     <div class="container" id="mainContainer">
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-            <div id="signageContainer">
-            <div class="row">
-                <div class="col-md-12" id="dotCanvas"></div>
-            </div>
-            <div class="row">
-                <div id="controllPanel">
-                    <div class="col-md-2">
-                        <div class="button" id="toggleColor">ペンの色：白</div>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form" id="desc" placeholder="ここにメッセージを入力してください" </input>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="button" id="send">送信</div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="button" id="clear">消去</div>
+        <div class="row">
+            <div class="col-xs-0 col-md-1"></div>
+            <div class="col-xs-12 col-md-10">
+                <div id="signageContainer">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-9">
+                            <div id="dotCanvas"></div>
+                            <input type="text" class="form" id="desc" placeholder="ここにメッセージを入力してください" </input>
+                        </div>
+                        <div class="col-xs-12 col-md-12 col-lg-3">
+                            <div id="controllPanel">
+                                <div class="col-xs-12 col-md-4 col-lg-12">
+                                    <div class="button" id="toggleColor">ペンの色：白</div>
+                                </div>
+                                <div class="col-xs-12 col-md-4 col-lg-12">
+                                    <div class="button" id="send">送信</div>
+                                </div>
+                                <div class="col-xs-12 col-md-1 col-lg-12">
+                                    <div class="blank">&nbsp;</div>
+                                </div>
+                                <div class="col-xs-12 col-md-3 col-lg-12">
+                                    <div class="button" id="clear">消去</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col-xs-0 col-md-1"></div>
         </div>
+	<div class="row">
+            <div class="col-xs-0 col-md-1"></div>
+	    <div class="col-xs-12 col-md-10">
+	        <div id="adContainer">
+			This application is powered by <a href="https://www.htmlhifive.com/" target="blank">hifive</a>
+	        </div>
+	    </div>
+            <div class="col-xs-0 col-md-1"></div>
+	</div>
     </div>
-        <div class="col-md-1"></div>
-    </div>
-</div>
 </div>
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->

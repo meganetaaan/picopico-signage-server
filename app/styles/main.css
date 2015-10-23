@@ -67,18 +67,38 @@ html, body {
 
 #signageContainer{
     padding: 10px;
-    margin:auto;
+    margin: auto;
+    background-color: #FAFAFA;
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+
+#adContainer{
+    padding: 10px;
+    margin: 10px auto auto auto;
+    color: #212121;
     background-color: #FAFAFA;
     box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
 #dotCanvas{
-    width: auto;
+    width: 640px;
+    height: auto;
     margin: auto;
 }
 #dotCanvas>table{
     margin: auto;
     border-collapse: collapse;
+}
+
+#desc{
+    color: #212121;
+    position:relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width:100%;
+    max-width: 640px;
+    margin:auto;
 }
 
 .cell{
