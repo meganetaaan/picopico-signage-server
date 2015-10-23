@@ -2,6 +2,7 @@ var express = require('express');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var SEARCH_WORD = '#htmlhifive';
 
 /*
 var mongoose = require('mongoose');
@@ -65,7 +66,7 @@ var twit = new twitter({
         access_token_secret: 'mfZj7jPfVffi3hH06PmNQli2xzFLgS49MgjZw2pGLJZeP'
 });
 
-var keyword = process.argv[2];
+var keyword = SEARCH_WORD;
 var option = {'track' : keyword};
 console.log(keyword + ' searching');
 
