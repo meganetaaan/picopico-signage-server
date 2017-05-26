@@ -2,7 +2,7 @@ var express = require('express');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var SEARCH_WORD = '#osc16tk';
+var SEARCH_WORD = '#oscnagoya';
 
 /*
 var mongoose = require('mongoose');
